@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise: System Documentation & Diagrams</title>
+    <style>
+        :root {
+            --primary-blue: #004b87;
+            --header-bg: #003366;
+            --card-border: #e1e8ed;
+            --card-bg: #ffffff;
+            --badge-bg: #0073e6;
+            --code-bg: #f8f9fa;
+            --body-bg: #f5f5f7;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--body-bg);
+            color: var(--text-dark);
+            padding-bottom: 40px;
+        }
+
+        /* Top Header Bar */
+        .top-bar {
+            background-color: var(--header-bg);
+            color: #ffffff;
+            padding: 16px 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-bar h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .top-bar p {
+            font-size: 0.85rem;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        /* Section Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .badge-num {
+            background-color: var(--badge-bg);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .badge-text {
+            background-color: var(--badge-bg);
+            color: #ffffff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Summary Text */
+        .summary-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #4a5568;
+        }
+
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f4f8;
+            color: var(--primary-blue);
+            font-weight: 700;
+            padding: 10px 12px;
+            border: 1px solid #dce4ec;
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid #e1e8ed;
+            vertical-align: top;
+            line-height: 1.5;
+        }
+
+        td ul {
+            list-style-type: disc;
+            margin-left: 18px;
+        }
+
+        /* Code / Diagram Block Styling */
+        pre {
+            background-color: var(--code-bg);
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 14px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: #2d3748;
+            overflow-x: auto;
+            white-space: pre;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-bar">
+        <h1>EXERCISE: System Documentation & Diagrams</h1>
+        <p>Student Care and Concern Reporting Platform</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Summary -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-text">SUMMARY</span>
+                <h2 class="card-title">System Overview</h2>
+            </div>
+            <p class="summary-text">
+                This web-based platform provides students with a confidential and organized way to report school-related concerns (such as bullying, harassment, facility issues, and emotional difficulties)[span_0](start_span)[span_0](end_span). It processes submissions, generates unique tracking codes for privacy, and allows authorized personnel to review, manage, and respond to reports efficiently[span_1](start_span)[span_1](end_span).
+            </p>
+        </section>
+
+        <!-- 1. Conceptual Framework -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">1</span>
+                <h2 class="card-title">Conceptual Framework (IPO Model)</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 33%;">Inputs</th>
+                            <th style="width: 34%;">Processes</th>
+                            <th style="width: 33%;">Outputs</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>Student Report Details (Category, Description, Evidence)</li>
+                                    <li>Submission Type (Anonymous / Identified)</li>
+                                    <li>Case Status Updates (Admin)</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>User Authentication & Privacy Encryption</li>
+                                    <li>Validation & Tracking Code Generation</li>
+                                    <li>Report Sorting & Categorization</li>
+                                    <li>Data Storage & Retrieval</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>Unique Incident Tracking Code</li>
+                                    <li>Centralized Report Database Record</li>
+                                    <li>Real-time Admin Notification</li>
+                                    <li>Status Updates & Resolution Notes</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 2. System Algorithm -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">2</span>
+                <h2 class="card-title">System Algorithm</h2>
+            </div>
+            <pre>Algorithm StudentCareAndConcernReporting
+
+1. START
+2. Initialize 'reportsDatabase' and 'trackingSystem'.
+3. DISPLAY UI with Input Fields (Category, Details, FileAttachment), 
+   Submission Options [1. Anonymous, 2. Identified], and 4 Action Buttons:
+   [1. Submit Report], [2. Review Reports], [3. Update Status], [4. Check Status]
+
+4. WHILE System Is Running DO:
+
+    IF Button "Submit Report" Clicked THEN:
+        Read Category, Details, Attachment, and SubmissionType from inputs.
+        IF inputs are valid THEN:
+            Generate unique TrackingCode.
+            Encrypt confidential student details.
+            Insert report into 'reportsDatabase'.
+            Notify Authorized School Personnel.
+            DISPLAY TrackingCode to Student.
+        ELSE:
+            DISPLAY "Error: Please complete all required fields."
+        END IF
+
+    ELSE IF Button "Review Reports" Clicked THEN:
+        IF Admin is Authenticated THEN:
+            FETCH pending and active reports from 'reportsDatabase'.
+            DISPLAY report summaries on Admin Panel.
+        END IF
+
+    ELSE IF Button "Update Status" Clicked THEN:
+        IF Admin is Authenticated THEN:
+            Read TrackingCode, NewStatus, and ActionNotes.
+            UPDATE record in 'reportsDatabase' with NewStatus and ActionNotes.
+            DISPLAY "Status updated successfully."
+        END IF
+
+    ELSE IF Button "Check Status" Clicked THEN:
+        Read TrackingCode from student input.
+        FETCH report status and responses from 'reportsDatabase' matching TrackingCode.
+        DISPLAY current status and official response to Student.
+    END IF
+
+5. END</pre>
+        </section>
+
+        <!-- 3. Logic Flowchart -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">3</span>
+                <h2 class="card-title">Logic Flowchart</h2>
+            </div>
+            <pre>                               +-----------+
+                               |   Start   |
+                               +-----------+
+                                     |
+                                     v
+                           +-------------------+
+                           | Render UI Layout  |
+                           +-------------------+
+                                     |
+                                     v
+                         +-----------------------+
+                         |  Wait for User Action | &lt;-------------------------+
+                         +-----------------------+                           |
+                                     |                                       |
+        +------------------+---------+---------+-------------------+         |
+        |                  |                   |                   |         |
+        v                  v                   v                   v         |
+ / Submit Report /  / Review Reports /  / Update Status /   / Check Status / |
+ +---------------+  +----------------+  +---------------+   +--------------+ |
+        |                  |                   |                   |         |
+        v                  v                   v                   v         |
+[ Validate &amp; Save  ] [ Fetch Reports   ] [ Update Case     ] [ Query Status  ] |
+[ Generate Code    ] [ for Admin View  ] [ Notes &amp; Status ] [ via Tracking  ] |
+        |                  |                   |             [     Code      ] |
+        +------------------+---------+---------+-------------------+         |
+                                     |                                       |
+                                     v                                       |
+                           +-------------------+                             |
+                           | Display Response /|                             |
+                           |  Update Screen    | ----------------------------+
+                           +-------------------+
+                                     |
+                                     v
+                               +-----------+
+                               |   Stop    |
+                               +-----------+</pre>
+        </section>
+
+        <!-- 4. Data Flow (Architectural Design) -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">4</span>
+                <h2 class="card-title">Data Flow (Architectural Design)</h2>
+            </div>
+            <pre>+-----------------------+        +-----------------------+        +-----------------------+
+| Student / Admin UI    | &lt;----&gt; |  Application Logic /  | &lt;----&gt; |   Database Storage    |
+| (Web Interface / Form)|        | Workflow Handler      |        |  (Encrypted Reports)  |
++-----------------------+        +-----------------------+        +-----------------------+
+                                             |                                |
+                                             v                                v
+                                 +-----------------------+        +-----------------------+
+                                 | Notification Engine   |        | Tracking Code Indexer |
+                                 | (Admin Alerts)        |        | (Anonymous Retrieval) |
+                                 +-----------------------+        +-----------------------+</pre>
+        </section>
+
+        <!-- 5. DFD Level 0 -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">5</span>
+                <h2 class="card-title">DFD Level 0 (Context Diagram)</h2>
+            </div>
+            <pre>                           +---------------------------------+
+                           |   Report Submission Details     |
+                           |   Tracking Code Status Query    |
+                           +---------------------------------+
+                                           |
+                                           v
++---------------+                +-------------------+                +----------------------+
+|               | -------------&gt; |     0. STUDENT    | -------------&gt; |                      |
+|    STUDENT    |                |   CARE &amp; CONCERN  |                | AUTHORIZED PERSONNEL |
+|               | &lt;------------- | REPORTING SYSTEM  | &lt;------------- |     (ADMIN/STAFF)    |
++---------------+                +-------------------+                +----------------------+
+                                           ^
+                                           |
+                           +---------------------------------+
+                           |   Case Status Updates           |
+                           |   Action Notes &amp; Responses      |
+                           +---------------------------------+</pre>
+        </section>
+
+        <!-- 6. DFD Level 1 -->
+        <section class="card">
+            <div class="card-header">
+                <span class="badge-num">6</span>
+                <h2 class="card-title">DFD Level 1 (Process Breakdown)</h2>
+            </div>
+            <pre>User Input ----&gt; | 1.0 Submit Incident Report | -------&gt; [ D1: Encrypted Incident Reports ]
+                                  |                                     |
+                                  v                                     v
+User Action ---&gt; | 2.0 Admin Review &amp; Triage  | &lt;------- [ D1: Encrypted Incident Reports ]
+                                  |                                     |
+                                  v                                     v
+User Action ---&gt; | 3.0 Update Case &amp; Response | -------&gt; [ D1: Encrypted Incident Reports ]
+                                  |                                     |
+                                  v                                     v
+User Input ----&gt; | 4.0 Check Incident Progress| &lt;------- [ D1: Encrypted Incident Reports ]</pre>
+        </section>
+
+    </main>
+
+</body>
+</html>
